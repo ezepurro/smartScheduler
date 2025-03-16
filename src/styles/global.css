@@ -11,3 +11,7 @@
     --color-brand-secondary: #D7DEDC;
     --color-brand-text: #424242;
 }
+
+body {
+    font-family: 'Montserrat', 'Courier New', Courier, monospace;
+}

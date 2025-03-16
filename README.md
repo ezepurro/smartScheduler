@@ -1,10 +1,10 @@
 # Smart Scheduler
 
-Smart Scheduler es una plataforma SaaS flexible y personalizable para la gestión de turnos en distintos tipos de negocios, como salones de belleza, consultorios médicos, gimnasios y más 🚀  
+Smart Scheduler es una plataforma SaaS flexible y personalizable para la gestión de turnos en distintos tipos de negocios, como salones de belleza, consultorios médicos, gimnasios y más  
 
 Permite a los dueños de negocios automatizar la programación de citas, enviar recordatorios por WhatsApp y ofrecer una experiencia optimizada a sus clientes.
 
-## ✨ Características
+## 🚀 Características
 
 - 📅 **Gestión de turnos:** Agenda citas fácilmente y administra la disponibilidad del negocio.
 - 📲 **Recordatorios automáticos:** Notificaciones por WhatsApp antes de cada turno.
