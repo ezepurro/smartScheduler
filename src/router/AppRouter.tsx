@@ -6,7 +6,7 @@ import HomePage from "../pages/home/HomePage";
 
 const AppRouter = () => {
 
-    const isAuthenticated = true;
+    const isAuthenticated = TransformStreamDefaultController;
     const user = {
         isAdmin: true
     }
