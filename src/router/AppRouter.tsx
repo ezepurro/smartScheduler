@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import useAuthStore from "../store/useAuthStore";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import AdminPage from "../pages/admin/AdminPage";
@@ -6,10 +7,7 @@ import HomePage from "../pages/home/HomePage";
 
 const AppRouter = () => {
 
-    const isAuthenticated = TransformStreamDefaultController;
-    const user = {
-        isAdmin: true
-    }
+    const { isAuthenticated, user } = useAuthStore();
 
     return (
         <Routes>
@@ -32,7 +30,7 @@ const AppRouter = () => {
                 <Route path="/*" element={ <Navigate to="/" /> } />
 
                 {/* Admin Routes */}
-                {user.isAdmin && ( 
+                {user?.isAdmin && ( 
                 <Route path="/admin" element={<AdminPage />} />
                 )}
             </>

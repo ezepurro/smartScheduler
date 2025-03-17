@@ -1,49 +1,61 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface user {
-    uid: string,
-    name: string,
-    isAdmin: boolean
+interface User {
+  uid: string;
+  name: string;
+  isAdmin: boolean;
 }
 
-const useAuthStore = create(persist(
-      (set) => ({
-        // isAuthenticated
-        isAuthenticated: false, 
-        setAuthenticationState: ( value:boolean ) => set({ isAuthenticated: value }),
+interface AuthState {
+  isAuthenticated: boolean;
+  user: User | null;
+  setAuthenticationState: (value: boolean) => void;
+  setUser: (user: User) => void;
+  errorMessage: string | null;
+  setErrorMessage: (message: string) => void;
+  onLogin: (user: User, token: string) => void;
+  onLogout: () => void;
+  clearErrorMessage: () => void;
+}
 
-        // user
-        user: null,
-        setUser: ( value:user ) => set({ user: value }),
+const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
+      // isAuthenticated
+      isAuthenticated: false,
+      setAuthenticationState: (value: boolean) => set({ isAuthenticated: value }),
 
-        // errorMessage
-        errorMessage: null,
-        setErrorMessage: ( value:string ) => set({ errorMessage: value }),
-        
+      // user
+      user: null,
+      setUser: (user: User) => set({ user }),
 
-        // onLogin
-        onLogin: ( user = {}, token:string ) => {
-          localStorage.setItem('token', token);
-          set({ isAuthenticated: true, user, errorMessage: null });
-        },
+      // errorMessage
+      errorMessage: null,
+      setErrorMessage: (message: string) => set({ errorMessage: message }),
 
-        // onLogout
-        onLogout: () => {
-          localStorage.removeItem('token');
-          set({ isAuthenticated: false, user: null, errorMessage: null });
-        },
+      // onLogin
+      onLogin: (user, token) => {
+        localStorage.setItem('token', token);
+        set({ isAuthenticated: true, user, errorMessage: null });
+      },
 
-        // clearErrorMessage
-        clearErrorMessage: () => {
-          set({ errorMessage: null });
-        },
-      }),
-      {
-        name: 'auth-storage', 
-        getStorage: () => localStorage, 
-      }
-));
+      // onLogout
+      onLogout: () => {
+        localStorage.removeItem('token');
+        set({ isAuthenticated: false, user: null, errorMessage: null });
+      },
 
+      // clearErrorMessage
+      clearErrorMessage: () => {
+        set({ errorMessage: null });
+      },
+    }),
+    {
+      name: 'auth-storage', 
+      getStorage: () => localStorage,
+    }
+  )
+);
 
 export default useAuthStore;
