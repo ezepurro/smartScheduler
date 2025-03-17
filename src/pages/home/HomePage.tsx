@@ -1,3 +1,4 @@
+import BookAppointment from "../../components/home/BookAppointment";
 import useAuthStore from "../../store/useAuthStore";
 
 const HomePage = () => {
@@ -20,6 +21,7 @@ const HomePage = () => {
                         </>
                 }
             </ul>   
+            { (user) && <BookAppointment /> }
         </div>
     )
 }
