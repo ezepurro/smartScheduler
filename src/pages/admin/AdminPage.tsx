@@ -35,7 +35,7 @@ const AdminPage = () => {
             </button>
 
             {/* Main Content */}
-            <main className="flex-1 md:p-6 flex items-center justify-center md:pl-1/5">
+            <main className="flex-1 md:p-6">
                 <SelectedComponent />
             </main>
         </div>

@@ -49,7 +49,7 @@ const NoPaidAppointment = ({ data, refreshData }) => {
             <th className="px-4 py-2">
                 <p className="text-sm">{convertDateToDDMMYY(data.date)} | {convertDateToHHMM(data.date)} HS</p></th>
             <th className="px-4 py-2">
-                <span className="text-red-700 rounded-md">No hay pago</span>
+                <span className="text-red-700 rounded-md text-sm">No hay pago</span>
             </th>
             <th className="px-4 py-2">
                 <button className="bg-green-700 text-white rounded-md hover:bg-green-800 p-2 cursor-pointer" onClick={handleAppointmentToPaid}>
