@@ -17,7 +17,7 @@ interface Appointment {
 }
 
 const Calendars = () => {
-    const [calendarEvents, setCalendarEvents] = useState([]);
+    const [ calendarEvents, setCalendarEvents ] = useState([]);
     const { getAppointmentsByService } = useAppointments();
     const { getAllServices } = useServices();
     const { getAllUsers } = useAuth();
@@ -26,6 +26,9 @@ const Calendars = () => {
         const chooseCalendar = async () => {
             try {
                 const services = await getAllServices();
+                if (!services) {
+                    // decir que no hay servicios, tmb en Calendars
+                }
                 const inputOptions = services.reduce((options: Record<string, string>, service: { id: string; name: string }) => {
                     options[service.id] = service.name;
                     return options;

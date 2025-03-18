@@ -1,6 +1,6 @@
 import AppointmentList from "../components/admin/AppointmentList";
 import Calendars from "../components/admin/Calendars";
-import DaySelectors from "../components/admin/DaySelectors";
+import DateList from "../components/admin/DateList";
 import NoPaidAppointmentList from "../components/admin/NoPaidAppointmentList";
 import ServicesList from "../components/admin/ServicesList";
 
@@ -14,7 +14,7 @@ export const adminSections = [
     {
         id: "appointments-days",
         title: "Administrar fechas para turnos",
-        component: DaySelectors
+        component: DateList
     },
     {
         id: "manage-appointment",

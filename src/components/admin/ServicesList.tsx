@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useBusinessSettings } from "../../hooks/useBusinessSettings";
 import { useServices } from "../../hooks/useServices";
 import Service from "./Service";
 import Swal from "sweetalert2";
@@ -6,6 +7,7 @@ import Modal from "react-modal";
 
 const ServicesList = () => {
     const { getAllServices, addService } = useServices();
+    const { addServiceToAvailability } = useBusinessSettings();
     const [ services, setServices ] = useState([]);
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
     const [ newService, setNewService ] = useState({ name: "", description: "", duration: "", price: "" });
@@ -42,11 +44,12 @@ const ServicesList = () => {
             return;
         }
         try {
-            await addService({
+            const {id} = await addService({
                 ...newService,
                 duration: parseInt(newService.duration),
                 price: parseFloat(newService.price)
             });
+            addServiceToAvailability(id);
             fetchServices();
             setModalIsOpen(false);
             Swal.fire({

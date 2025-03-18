@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useBusinessSettings } from "../../hooks/useBusinessSettings";
 import { useServices } from "../../hooks/useServices";
 import Modal from "react-modal";
 import Swal from "sweetalert2";
 
 const Service = ({ data, refreshData }) => {
+
     const { updateService, deleteService } = useServices();
+    const { removeServiceFromAvailability } = useBusinessSettings();
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
     const [ formData, setFormData ] = useState({
         name: data.name,
@@ -55,6 +58,7 @@ const Service = ({ data, refreshData }) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 await deleteService(data.id);
+                removeServiceFromAvailability(data.id);
                 refreshData();
                 Swal.fire({
                     icon: 'success',
