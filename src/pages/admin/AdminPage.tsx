@@ -20,7 +20,7 @@ const AdminPage = () => {
                         <div key={section.id}>
                             <button
                                 onClick={() => setSelectedOption(section.id)}
-                                className="block w-full text-left border-b border-brand-secondary pb-2 cursor-pointer hover:text-brand-text"
+                                className="block w-full text-left border-b border-brand-secondary pb-2 cursor-pointer hover:text-brand-text transform duration-300"
                             >
                                 {section.title}
                             </button>

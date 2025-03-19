@@ -1,5 +1,5 @@
 import { useBusinessSettings } from "../../hooks/useBusinessSettings";
-import { convertDateToDDMMYY } from "../../data/converters";
+import { convertDateToDDMMYY } from "../../helpers/converters";
 import Swal from "sweetalert2";
 
 const Date = ({ data, serviceId, refreshData }) => {
@@ -24,7 +24,7 @@ const Date = ({ data, serviceId, refreshData }) => {
             </th>
             <th className="px-4 py-2">
                 <button
-                    className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-default"
+                    className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-default transform duration-300"
                     onClick={handleDelete}
                 >
                     Eliminar Turno

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useServices } from "../../hooks/useServices";
+import { useBusinessSettings } from "../../hooks/useBusinessSettings";
 import Date from "./Date";
 import Swal from "sweetalert2";
-import { useBusinessSettings } from "../../hooks/useBusinessSettings";
 import Modal from "react-modal";
-import DatePicker from "react-datepicker"; // Importar el componente DatePicker
-import "react-datepicker/dist/react-datepicker.css"; // Importar los estilos de react-datepicker
+import DatePicker from "react-datepicker"; 
+import "react-datepicker/dist/react-datepicker.css"; 
 
 const DateList = () => {
 
@@ -13,10 +13,9 @@ const DateList = () => {
     const { getServiceDates, addDateToServiceAvailability } = useBusinessSettings();
     const [dates, setDates] = useState([]);
     const [selectedService, setSelectedService] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado del modal
-    const [selectedDate, setSelectedDate] = useState(null); // Fecha seleccionada en el modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null); 
 
-    // Función para obtener las fechas del servicio seleccionado
     const fetchDates = async (serviceId) => {
         const fetchedDates = await getServiceDates(serviceId);
         setDates(fetchedDates);
@@ -96,7 +95,7 @@ const DateList = () => {
                 <h1 className="text-xl font-[500]">Gestión de Fechas para turnos</h1>
                 <button
                     onClick={openModal}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer">
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer transform duration-300">
                     <span className="font-[600]">+</span> Añadir Fecha
                 </button>
             </div>
@@ -137,12 +136,12 @@ const DateList = () => {
                 <div className="flex justify-between">
                     <button
                         onClick={closeModal}
-                        className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                        className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transform duration-300">
                         Cancelar
                     </button>
                     <button
                         onClick={handleAddDate}
-                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transform duration-300">
                         Añadir
                     </button>
                 </div>

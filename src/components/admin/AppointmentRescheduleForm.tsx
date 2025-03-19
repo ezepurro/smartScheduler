@@ -93,13 +93,13 @@ const AppointmentRescheduleForm = ({ isOpen, onClose, appointment, refreshData }
                 <div className="flex justify-end gap-2">
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500"
+                        className="px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 transform duration-300"
                     >
                         Cancelar
                     </button>
                     <button
                         onClick={handleSaveChanges}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transform duration-300"
                     >
                         Guardar Cambios
                     </button>

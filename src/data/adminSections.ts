@@ -3,6 +3,7 @@ import Calendars from "../components/admin/Calendars";
 import DateList from "../components/admin/DateList";
 import NoPaidAppointmentList from "../components/admin/NoPaidAppointmentList";
 import ServicesList from "../components/admin/ServicesList";
+import UserList from "../components/admin/UserList";
 
 
 export const adminSections = [
@@ -30,5 +31,10 @@ export const adminSections = [
         id: "manage-services",
         title: "Administrar servicios",
         component: ServicesList
+    },
+    {
+        id: "manage-users",
+        title: "Administrar usuarios",
+        component: UserList
     },
 ]

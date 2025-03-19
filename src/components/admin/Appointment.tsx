@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { convertDateToDDMMYY, convertDateToHHMM } from "../../data/converters";
+import { convertDateToDDMMYY, convertDateToHHMM } from "../../helpers/converters";
 import { useAppointments } from "../../hooks/useAppointments";
 import Swal from "sweetalert2";
 import AppointmentRescheduleForm from "./AppointmentRescheduleForm";
@@ -65,14 +65,14 @@ const Appointment = ({ data, refreshData }) => {
       <th className="px-4 py-2">
         {data.status === "pending" ? (
           <button
-            className="bg-green-700 text-white rounded-md hover:bg-green-800 p-2 cursor-pointer"
+            className="bg-green-700 text-white rounded-md hover:bg-green-800 p-2 cursor-pointer transform duration-300"
             onClick={handleAppointmentToPaid}
           >
             Marcar como Pago
           </button>
         ) : (
           <button
-            className="bg-cyan-700 text-white rounded-md hover:bg-cyan-800 p-2 cursor-pointer"
+            className="bg-cyan-700 text-white rounded-md hover:bg-cyan-800 p-2 cursor-pointer transform duration-300"
             onClick={() => setShowModal(true)}
           >
             Reagendar Turno
@@ -81,7 +81,7 @@ const Appointment = ({ data, refreshData }) => {
       </th>
       <th className="px-4 py-2">
         <button
-          className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-default"
+          className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-default transform duration-300"
           disabled={data.status === "pending"}
           onClick={handleDelete}
         >

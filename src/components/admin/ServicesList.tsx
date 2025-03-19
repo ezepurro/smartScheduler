@@ -69,7 +69,7 @@ const ServicesList = () => {
                 <h1 className="text-xl font-[500]">Gestión de Servicios</h1>
                 <button
                     onClick={openModal}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer">
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer transform duration-300">
                     <span className="font-[600]">+</span> Añadir Servicio
                 </button>
             </div>
@@ -129,8 +129,8 @@ const ServicesList = () => {
                     onChange={(e) => setNewService({ ...newService, price: e.target.value })}
                 />
                 <div className="flex justify-end gap-2">
-                    <button className="bg-gray-500 hover:bg-gray-600 cursor-pointer text-white px-4 py-2 rounded" onClick={() => setModalIsOpen(false)}>Cancelar</button>
-                    <button className="bg-green-500 hover:bg-green-600 cursor-pointer text-white px-4 py-2 rounded" onClick={handleAddService}>Añadir</button>
+                    <button className="bg-gray-500 hover:bg-gray-600 cursor-pointer text-white px-4 py-2 rounded transform duration-300" onClick={() => setModalIsOpen(false)}>Cancelar</button>
+                    <button className="bg-green-500 hover:bg-green-600 cursor-pointer text-white px-4 py-2 rounded transform duration-300" onClick={handleAddService}>Añadir</button>
                 </div>
             </Modal>
         </div>

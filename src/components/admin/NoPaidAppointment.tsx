@@ -1,4 +1,4 @@
-import { convertDateToDDMMYY, convertDateToHHMM } from "../../data/converters";
+import { convertDateToDDMMYY, convertDateToHHMM } from "../../helpers/converters";
 import { useAppointments } from "../../hooks/useAppointments";
 import Swal from "sweetalert2";
 
@@ -52,12 +52,12 @@ const NoPaidAppointment = ({ data, refreshData }) => {
                 <span className="text-red-700 rounded-md text-sm">No hay pago</span>
             </th>
             <th className="px-4 py-2">
-                <button className="bg-green-700 text-white rounded-md hover:bg-green-800 p-2 cursor-pointer" onClick={handleAppointmentToPaid}>
+                <button className="bg-green-700 text-white rounded-md hover:bg-green-800 p-2 cursor-pointer transform duration-300" onClick={handleAppointmentToPaid}>
                     Marcar como pago
                 </button>
             </th>
             <th className="px-4 py-2">
-                <button className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer" onClick={handleDelete}>
+                <button className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer transform duration-300" onClick={handleDelete}>
                     Eliminar Turno
                 </button>
             </th>

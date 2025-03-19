@@ -91,11 +91,49 @@ export const useAuth = () => {
         }
     }
 
+    const getAllUsersPaginated = async (page: number = 1, limit: number = 10) => {
+        try {
+            const { data } = await handleApi.get(`/auth/users/paginated?page=${page}&limit=${limit}`);
+            return {
+                users: data.users,
+                totalPages: data.totalPages,
+                currentPage: data.currentPage,
+            };
+        } catch (error) {
+            console.log(error);
+            return { users: [], totalPages: 1, currentPage: 1 };
+        }
+    };
+
+    const updateUserById = async (updatedUser:User, uid:string) => {
+        try {
+            await handleApi.put(`/auth/users/${uid}`, updatedUser);
+            Swal.fire({
+                icon: 'success',
+                title: `Usuario ${updatedUser.name} actualizado con exito`,
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        } catch (error) {
+            console.log(error);
+            const data = error.response?.data || {};
+            Swal.fire({
+                icon: 'error',
+                title: `Error`,
+                text: data.msg || 'Error desconocido',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+    }
+
     return {
         getAllUsers,
+        getAllUsersPaginated,
         getUserById,
         logIn,
         logOut,
-        register
+        register,
+        updateUserById
     }
 }
