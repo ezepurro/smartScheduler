@@ -3,7 +3,7 @@ import { useAppointments } from "../../hooks/useAppointments";
 import { useServices } from "../../hooks/useServices";
 import { useAuth } from "../../hooks/useAuth";
 import { addMinutes } from "date-fns";
-import CalendarComponent from "./CalendarComponent";
+import Calendar from "./Calendar";
 import Swal from "sweetalert2";
 
 interface Appointment {
@@ -16,7 +16,7 @@ interface Appointment {
     type: string;
 }
 
-const Calendars = () => {
+const CalendarList = () => {
     const [calendarEvents, setCalendarEvents] = useState([]);
     const { getAppointmentsByService } = useAppointments();
     const { getAllServices } = useServices();
@@ -76,9 +76,9 @@ const Calendars = () => {
 
     return (
         <div className="flex flex-col h-screen w-full md:w-full p-10">
-            <CalendarComponent events={calendarEvents} />
+            <Calendar events={calendarEvents} />
         </div>
     );
 };
 
-export default Calendars;
+export default CalendarList;

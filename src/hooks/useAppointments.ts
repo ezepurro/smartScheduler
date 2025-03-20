@@ -9,7 +9,6 @@ interface Appointment {
     userId: string;
     serviceId: string;
     status: string;
-    businessId: string;
 }
 
 export const useAppointments = () => {

@@ -9,7 +9,7 @@ const UserList = () => {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const limit = 10;
+    const limit = 3;
 
     const fetchUsers = async (page: number) => {
         Swal.fire({

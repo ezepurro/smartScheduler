@@ -1,5 +1,5 @@
 import AppointmentList from "../components/admin/AppointmentList";
-import Calendars from "../components/admin/Calendars";
+import CalendarList from "../components/admin/CalendarList";
 import DateList from "../components/admin/DateList";
 import NoPaidAppointmentList from "../components/admin/NoPaidAppointmentList";
 import ServicesList from "../components/admin/ServicesList";
@@ -10,7 +10,7 @@ export const adminSections = [
     {
         id: "appointments-calendars",
         title: "Ver turnos",
-        component: Calendars
+        component: CalendarList
     },
     {
         id: "appointments-days",

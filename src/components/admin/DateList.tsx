@@ -123,13 +123,13 @@ const DateList = () => {
                 overlayClassName="fixed inset-0 bg-opacity-50 flex justify-center items-center"
             >
                 <h2 className="text-xl font-[500] mb-4">Añadir Fecha para el Servicio</h2>
-                <div className="mb-4">
+                <div className="mb-4 w-full">
                     <label htmlFor="date-picker" className="block text-sm">Seleccione la fecha:</label>
                     <DatePicker
                         id="date-picker"
                         selected={selectedDate}
                         onChange={setSelectedDate}
-                        className="border border-gray-300 p-2 rounded-md w-full"
+                        className="border p-2 w-full mb-2 rounded-xl"
                         placeholderText="Seleccionar fecha"
                     />
                 </div>
