@@ -10,7 +10,7 @@ import useAuthStore from '../../store/useAuthStore';
 import 'react-phone-input-2/lib/style.css';
 import "react-datepicker/dist/react-datepicker.css";
 import { useServices } from '../../hooks/useServices';
-
+import { findTimeIntervals } from '../../helpers/findTimeIntervals';
 registerLocale('es', es);
 
 const appointmentFormFields = {
@@ -19,6 +19,10 @@ const appointmentFormFields = {
     date: '',
     serviceId: '',
 };
+
+const service = ''
+const ammount = 2
+const timeIntervals = await findTimeIntervals(service,ammount);
 
 const BookAppointment = () => {
     const [services, setServices] = useState([]);
@@ -115,6 +119,7 @@ const BookAppointment = () => {
                         showTimeSelect
                         locale="es"
                         timeCaption="Hora"
+                        timeIntervals={timeIntervals}
                         onKeyDown={(e) => { e.preventDefault(); }}
                         minDate={new Date()}
                         name='date'
