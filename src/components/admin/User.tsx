@@ -3,16 +3,27 @@ import { useAuth } from "../../hooks/useAuth";
 import useAuthStore from "../../store/useAuthStore";
 import UserAppointmentList from "./UserAppointmentList";
 import AddEmployeeModal from "./AddEmployeeModal";
+import Swal from "sweetalert2";
 
-const User = ({ data, refreshData, page }) => {
+const User = ({ data, refreshData, page, limits }) => {
     const { user } = useAuthStore();
     const { updateUserById } = useAuth();
-    const [ modalIsOpen, setModalIsOpen ] = useState(false);
-    const [ employeeModalIsOpen, setEmployeeModalIsOpen ] = useState(false);
-    const [ isAdmin, setIsAdmin ] = useState(data.isAdmin);
-    const [ isEmployee, setIsEmployee ] = useState(data.isEmployee || false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [employeeModalIsOpen, setEmployeeModalIsOpen] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(data.isAdmin);
+    const [isEmployee, setIsEmployee] = useState(data.isEmployee || false);
 
     const toggleAdmin = async () => {
+        if (!isAdmin && limits.totalAdmins >= limits.totalAdminsRequired) {
+            Swal.fire({
+                title: "Límite alcanzado",
+                text: "No se pueden agregar más administradores",
+                icon: "warning",
+                showConfirmButton: false,
+                timer: 1000,
+            });
+            return;
+        }
         try {
             const newAdminStatus = !isAdmin;
             await updateUserById({ ...data, isAdmin: newAdminStatus }, data.id);
@@ -24,6 +35,16 @@ const User = ({ data, refreshData, page }) => {
     };
 
     const toggleEmployee = async () => {
+        if (!isEmployee && limits.totalEmployees >= limits.totalEmployeesRequired) {
+            Swal.fire({
+                title: "Límite alcanzado",
+                text: "No se pueden agregar más empleados",
+                icon: "warning",
+                showConfirmButton: false,
+                timer: 1000,
+            });
+            return;
+        }
         try {
             const newEmployeeStatus = !isEmployee;
             if (newEmployeeStatus) setEmployeeModalIsOpen(true);
