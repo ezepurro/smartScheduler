@@ -24,7 +24,7 @@ const Date = ({ data, serviceId, refreshData }) => {
             </th>
             <th className="px-4 py-2">
                 <button
-                    className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-default transform duration-300"
+                    className="text-red-700 border-red-700 hover:text-white hover:bg-red-700 hover:w-full border rounded-md p-2 w-[90%] cursor-pointer transform duration-300"
                     onClick={handleDelete}
                 >
                     Eliminar Turno

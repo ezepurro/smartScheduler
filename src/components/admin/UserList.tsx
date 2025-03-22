@@ -9,7 +9,7 @@ const UserList = () => {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const limit = 3;
+    const limit = 10;
 
     const fetchUsers = async (page: number) => {
         Swal.fire({
@@ -55,7 +55,7 @@ const UserList = () => {
                     <button
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
-                        className="px-4 py-2 mx-2 bg-gray-300 rounded disabled:opacity-50"
+                        className="px-4 py-2 mx-2 bg-gray-300 hover:bg-gray-400 transform duration-300 cursor-pointer rounded disabled:opacity-50 disabled:cursor-default disabled:hover:bg-gray-300"
                     >
                         Anterior
                     </button>
@@ -63,7 +63,7 @@ const UserList = () => {
                     <button
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
-                        className="px-4 py-2 mx-2 bg-gray-300 rounded disabled:opacity-50"
+                        className="px-4 py-2 mx-2 bg-gray-300 hover:bg-gray-400 transform duration-300 cursor-pointer rounded disabled:opacity-50 disabled:cursor-default disabled:hover:bg-gray-300"
                     >
                         Siguiente
                     </button>

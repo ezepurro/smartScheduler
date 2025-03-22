@@ -85,12 +85,18 @@ const Service = ({ data, refreshData }) => {
                 <p className="text-sm">${data.price}</p>
             </th>
             <th className="px-4 py-2">
-                <button onClick={handleEdit} className="bg-cyan-700 text-white rounded-md hover:bg-cyan-800 p-2 cursor-pointer transform duration-300">
+                <button
+                    onClick={handleEdit}
+                    className="text-cyan-700 border-cyan-700 hover:text-white hover:bg-cyan-700 hover:w-full border rounded-md p-2 w-[90%] cursor-pointer transform duration-300"
+                >
                     Editar
                 </button>
             </th>
             <th className="px-4 py-2">
-                <button onClick={handleDelete} className="bg-red-700 text-white rounded-md hover:bg-red-800 p-2 cursor-pointer transform duration-300">
+                <button
+                    onClick={handleDelete}
+                    className="text-red-700 border-red-700 hover:text-white hover:bg-red-700 hover:w-full border rounded-md p-2 w-[90%] cursor-pointer transform duration-300"
+                >
                     Eliminar
                 </button>
             </th>

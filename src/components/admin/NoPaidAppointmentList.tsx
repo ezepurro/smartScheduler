@@ -8,14 +8,14 @@ import Swal from "sweetalert2";
 const ITEMS_PER_PAGE = 6;
 
 const NoPaidAppointmentList = () => {
-    const [appointments, setAppointments] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const [ appointments, setAppointments ] = useState([]);
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const [ totalPages, setTotalPages ] = useState(1);
     const { getNoPaidAppointments } = useAppointments();
     const { getAllUsers } = useAuth();
     const { getAllServices } = useServices();
 
-    const fetchAppointments = async (page) => {
+    const fetchAppointments = async (page:number) => {
         try {
             Swal.fire({
                 title: "Cargando turnos sin seña",
