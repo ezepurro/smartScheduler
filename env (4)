@@ -1,0 +1,4 @@
+PORT=4000
+DATABASE_URL="mongodb+srv://solidcat:iC9PicXXSKX9ik7l@solidcat.litmr.mongodb.net/solidcat_dev"
+SECRET_JWT_SEED=s0l1Dc4t-D3v-jWT-sEcR3t-s3ed
+BUSINESS_SETTINGS_ID=67d88f68d1965f79cd567251

@@ -20,28 +20,34 @@ const appointmentFormFields = {
     serviceId: '',
 };
 
-const service = ''
-const ammount = 2
-const timeIntervals = await findTimeIntervals(service,ammount);
+
 
 const BookAppointment = () => {
     const [services, setServices] = useState([]);
     const [selectedService, setSelectedService] = useState('');
     const [isTouched, setIsTouched] = useState(false);
+    const [ selectedOption, setSelectedOption ] = useState('');
+    const [timeIntervals, setTimeIntervals] = useState(5);
     const [minTime, setMinTime] = useState(9);
     const [maxTime, setMaxTime] = useState(18);
+    const service = ''
+    
     
     const { formState, onInputChange, isFormValid, dateValid, contactValid } = useForm(appointmentFormFields);
     const { contact, date } = formState;
     const { addAppointment } = useAppointments();
     const { user } = useAuthStore();
     const { getAllServices } = useServices();
-
-    useEffect(() => {
+    const handleChange = (event:any) => {
+        setSelectedOption(event.target.value);
+    };
+    useEffect(async():any=> {
         const fetchServices = async () => {
             const fetchedServices = await getAllServices();
             setServices(fetchedServices);
         };
+        const timeIntervals = await findTimeIntervals(service, parseInt(selectedOption));
+        setTimeIntervals(timeIntervals)
 
         fetchServices();
     }, []);
@@ -89,6 +95,20 @@ const BookAppointment = () => {
                         containerClass="w-full"
                         dropdownClass="bg-white border rounded-lg shadow-lg text-black"
                     />
+                    <label htmlFor="options">Cantidad de zonas</label>
+                        <select
+                            id="options"
+                            value={selectedOption}
+                            onChange={handleChange}
+                            className='form-control'
+                            name='sessionZones'
+                        >
+                            <option value="" disabled></option>
+                            <option value="1">1 Zona</option>
+                            <option value="3">3 Zonas</option>
+                            <option value="5">5 Zonas</option>
+                            <option value="10">Full-body</option>
+                        </select>
                 </div>
 
                 {/* Select de servicios */}
